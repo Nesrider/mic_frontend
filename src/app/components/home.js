@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
 import './home.scss';
 import $ from 'jquery';
+import {sortByWords, sortBySubmitted} from '../constants/sort.js';
 
 export class Home extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
+			sortNum: 0,
+			sortFunc: [[sortByWords, "WORDS"],
+				[sortBySubmitted, "SUBMIT"]],
 			numLoads: 0,
 			maxLoads: 2,
 			numArticles: 10,
@@ -22,7 +26,8 @@ export class Home extends Component {
 			console.log(data);
 			this.setState({numLoads: 1,
 				initArticleLenth: data.length,
-				curArticleData: data.splice(0, this.state.numArticles),
+				curArticleData: data.splice(0, this.state.numArticles).sort(
+					this.state.sortFunc[this.state.sortNum][0]),
 				curArticleLength: this.state.numArticles,
 				articleData: data});
 		});
@@ -38,6 +43,26 @@ export class Home extends Component {
 				{item.author}
 			</div>
 		</div>);
+	}
+
+	handleSortArticles() {
+		const curArticleData = this.state.curArticleData;
+		const sortFunc = this.state.sortFunc;
+		let sortNumPlus = this.state.sortNum + 1;
+
+		if (sortNumPlus === sortFunc.length) {
+			this.setState({
+				sortNum: 0
+			});
+
+			sortNumPlus = 0;
+		}
+
+		console.log(sortNumPlus);
+		this.setState({
+			sortNum: sortNumPlus,
+			curArticleData: curArticleData.sort(sortFunc[sortNumPlus][0])
+		});
 	}
 
 	handleAddArticles() {
@@ -57,13 +82,17 @@ export class Home extends Component {
 			}).then(() =>
 				this.setState({
 					curArticleLength: newLength,
-					curArticleData: this.state.curArticleData.concat(this.state.articleData.splice(0, this.state.numArticles))
+					curArticleData: this.state.curArticleData.concat(
+						this.state.articleData.splice(0, this.state.numArticles)).sort(
+						this.state.sortFunc[this.state.sortNum][0])
 				})
 			);
 		} else {
 			this.setState({
 				curArticleLength: newLength,
-				curArticleData: this.state.curArticleData.concat(this.state.articleData.splice(0, this.state.numArticles))
+				curArticleData: this.state.curArticleData.concat(
+					this.state.articleData.splice(0, this.state.numArticles)).sort(
+					this.state.sortFunc[this.state.sortNum][0])
 			});
 		}
 	}
@@ -109,8 +138,8 @@ export class Home extends Component {
 						<div className="mic_title col col-m-10 col-sm-9 col-xs-8">
 							<img src="images/mic_logo_transparent.png"/>
 						</div>
-						<div className="sort_button btn col-m-2 col col-sm-2 col-xs-2">
-							WORDS
+						<div onClick={this.handleSortArticles.bind(this)} className="sort_button btn col-m-2 col col-sm-2 col-xs-2">
+							SORT BY {this.state.sortFunc[this.state.sortNum][1]}
 						</div>
 					</div>
 				</div>
