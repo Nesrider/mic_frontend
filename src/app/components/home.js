@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './home.scss';
 import $ from 'jquery';
 import {sortByWords, sortBySubmitted} from '../constants/sort.js';
+import {block} from './block.js';
 
 export class Home extends Component {
 	constructor(props) {
@@ -31,18 +32,6 @@ export class Home extends Component {
 				curArticleLength: this.state.numArticles,
 				articleData: data});
 		});
-	}
-
-	block(item) {
-		return (<div key={item.id} className="col block col-sm-4 col-xs-12">
-			<img src={item.image}/>
-			<div className="block_title block_text">
-				{item.title}
-			</div>
-			<div className="block_author block_text">
-				{item.author}
-			</div>
-		</div>);
 	}
 
 	handleSortArticles() {
@@ -120,7 +109,7 @@ export class Home extends Component {
 
 			for (let j = i; j < i + rowNum; j++) {
 				if (j < numArticles) {
-					row.push(this.block(this.state.curArticleData[j]));
+					row.push(block(this.state.curArticleData[j]));
 				}
 			}
 
