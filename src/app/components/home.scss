@@ -1,3 +1,10 @@
+@media(max-width:576px){
+	block img{
+		min-width: 100%;
+	}
+}
+
+
 .mic_title img {
 	width: 100px;
 	margin: 20px;
@@ -21,4 +28,35 @@
 
 .invis {
 	display: none;
+}
+
+.block {
+	background-color: grey;
+	overflow:hidden;
+	padding: 30px;
+
+}
+
+.block_text {
+	color: white;
+	padding: 5px;
+}
+
+.block img {
+	max-width: 100%;
+	top: 0%;
+
+}
+.bot_bar {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.text_button {
+	background-color:grey;
+	color: white;
+	padding: 5px;
+}
+.text_button:hover {
+	color: #e3e4e5 !important;
 }
