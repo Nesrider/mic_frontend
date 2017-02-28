@@ -1,0 +1,24 @@
+.mic_title img {
+	width: 100px;
+	margin: 20px;
+}
+
+.sort_button {
+	background-color:grey;
+	color: white;
+	position: absolute;
+	bottom: 0;
+	margin:20px;
+}
+
+.top_bar {
+	position:relative;
+}
+
+.sort_button:hover {
+	color: #e3e4e5 !important;
+}
+
+.invis {
+	display: none;
+}

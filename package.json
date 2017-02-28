@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "jquery": "^3.1.1",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-router": "^2.4.0"
@@ -72,6 +73,21 @@
     "extends": [
       "xo-react/space",
       "xo-space/esnext"
-    ]
+    ],
+    "rules": {
+      "indent": [
+        2,
+        "tab"
+      ],
+      "react/jsx-indent": [
+        2,
+        "tab"
+      ],
+      "react/jsx-indent-props": [
+        2,
+        "tab"
+      ],
+      "react/display-name": 1
+    }
   }
 }
