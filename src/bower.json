@@ -1,0 +1,21 @@
+{
+  "name": "Keith Yeung",
+  "main": "index.js",
+  "homepage": "https://github.com/Nesrider/mic_frontend",
+  "authors": [
+    "Keith Yeung <kmyeung@andrew.cmu.edu>"
+  ],
+  "description": "Mic_frontend",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
