@@ -4,8 +4,17 @@ This project was developed utilizing Bootstrap CSS, and ReactJs framework to bui
 
 ## Installation
 
-Download the git repository and in the main folder run:
+If you are downloading the git repository, then in the main folder run:
 ```
+cd src
+bower install
+cd ..
 npm install
+npm run serve
+```
+
+Otherwise, just run:
+
+```
 npm run serve
 ```
