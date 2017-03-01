@@ -22,17 +22,32 @@ export class Home extends Component {
 		};
 	}
 
+	/*
+		gets the articles when mounted
+	*/
 	componentDidMount() {
+		const localSortNum = parseInt(localStorage.getItem('sortNum'), 10);
+		let stateSortNum = this.state.sortNum;
+
+		if (localSortNum !== null) {
+			stateSortNum = localSortNum;
+		}
+
 		$.getJSON("data/articles.json", data => {
 			this.setState({numLoads: 1,
 				initArticleLenth: data.length,
 				curArticleData: data.splice(0, this.state.numArticles).sort(
-					this.state.sortFunc[this.state.sortNum][0]),
+					this.state.sortFunc[stateSortNum][0]),
+				sortNum: stateSortNum,
 				curArticleLength: this.state.numArticles,
 				articleData: data});
 		});
 	}
 
+	/* 
+		sorts the articles by words or submitted, additional
+		sorting functions and name can be added through initial state
+	*/
 	handleSortArticles() {
 		const curArticleData = this.state.curArticleData;
 		const sortFunc = this.state.sortFunc;
@@ -51,8 +66,16 @@ export class Home extends Component {
 			sortNum: sortNumPlus,
 			curArticleData: curArticleData.sort(sortFunc[sortNumPlus][0])
 		});
+
+		localStorage.setItem('sortNum', sortNumPlus);
 	}
 
+
+	/*
+		Handles adding articles by check the number of articles we see
+		If we load past the length of articles.json, we'll import more-arcticles.json
+		and add additional articles from the additional json.
+	*/
 	handleAddArticles() {
 		const numLoads = this.state.numLoads;
 		const maxLoads = this.state.maxLoads;
@@ -99,6 +122,10 @@ export class Home extends Component {
 	}
 
 	render() {
+
+		/*
+			Builds the table of articles by rows and cols
+		*/
 		const numArticles = this.state.curArticleData.length;
 		const rowNum = 3;
 		const blocks = [];
