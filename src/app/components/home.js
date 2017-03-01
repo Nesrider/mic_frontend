@@ -44,7 +44,7 @@ export class Home extends Component {
 		});
 	}
 
-	/* 
+	/*
 		sorts the articles by words or submitted, additional
 		sorting functions and name can be added through initial state
 	*/
@@ -69,7 +69,6 @@ export class Home extends Component {
 
 		localStorage.setItem('sortNum', sortNumPlus);
 	}
-
 
 	/*
 		Handles adding articles by check the number of articles we see
@@ -122,10 +121,10 @@ export class Home extends Component {
 	}
 
 	render() {
-
 		/*
 			Builds the table of articles by rows and cols
 		*/
+
 		const numArticles = this.state.curArticleData.length;
 		const rowNum = 3;
 		const blocks = [];
