@@ -29,9 +29,12 @@ export class Home extends Component {
 		const localSortNum = parseInt(localStorage.getItem('sortNum'), 10);
 		let stateSortNum = this.state.sortNum;
 
-		if (localSortNum !== null) {
+		if (!isNaN(localSortNum)) {
 			stateSortNum = localSortNum;
 		}
+
+		console.log(localSortNum !== null);
+		console.log(this.state.sortNum);
 
 		$.getJSON("data/articles.json", data => {
 			this.setState({numLoads: 1,
