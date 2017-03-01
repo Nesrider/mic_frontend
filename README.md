@@ -6,5 +6,6 @@ This project was developed utilizing Bootstrap CSS, and ReactJs framework to bui
 
 Download the git repository and in the main folder run:
 ```
+npm install
 npm run serve
 ```
