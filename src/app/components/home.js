@@ -11,7 +11,7 @@ export class Home extends Component {
 		this.state = {
 			sortNum: 0,
 			sortFunc: [[sortByWords, "WORDS"],
-				[sortBySubmitted, "SUBMIT"]],
+				[sortBySubmitted, "SUBMITTED"]],
 			numLoads: 0,
 			maxLoads: 2,
 			numArticles: 10,
@@ -24,7 +24,6 @@ export class Home extends Component {
 
 	componentDidMount() {
 		$.getJSON("data/articles.json", data => {
-			console.log(data);
 			this.setState({numLoads: 1,
 				initArticleLenth: data.length,
 				curArticleData: data.splice(0, this.state.numArticles).sort(
@@ -124,10 +123,10 @@ export class Home extends Component {
 			<div>
 				<div className="container">
 					<div className="row top_bar">
-						<div className="mic_title col col-m-10 col-sm-9 col-xs-8">
+						<div className="mic_title col col-m-10 col-sm-9 col-xs-7">
 							<img src="images/mic_logo_transparent.png"/>
 						</div>
-						<div onClick={this.handleSortArticles.bind(this)} className="sort_button btn col-m-2 col col-sm-2 col-xs-2">
+						<div onClick={this.handleSortArticles.bind(this)} className="sort_button btn col-m-2 col col-sm-2 col-xs-4">
 							SORT BY {this.state.sortFunc[this.state.sortNum][1]}
 						</div>
 					</div>

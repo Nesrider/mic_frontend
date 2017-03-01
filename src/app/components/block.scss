@@ -1,0 +1,28 @@
+.block {
+	overflow:hidden;
+	padding: 20px;
+
+}
+
+.block_text {
+	color: grey;
+	padding-left: 15px;
+	font-size: 12px;
+	display: inline-block;
+}
+
+.block_title {
+	padding: 10px;
+	font-size: 20px;
+	color: black;
+}
+
+.block_author {
+	color: #1fc3ff;
+}
+
+.block img {
+	max-width: 100%;
+	top: 0%;
+
+}

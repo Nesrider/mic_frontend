@@ -4,18 +4,21 @@
 	}
 }
 
-
 .mic_title img {
 	width: 100px;
 	margin: 20px;
 }
 
 .sort_button {
-	background-color:grey;
-	color: white;
 	position: absolute;
 	bottom: 0;
 	margin:20px;
+}
+
+.btn {
+	border-radius: 0px !important;
+	background-color: #1fc3ff;
+	color: white;
 }
 
 .top_bar {
@@ -30,31 +33,12 @@
 	display: none;
 }
 
-.block {
-	background-color: grey;
-	overflow:hidden;
-	padding: 30px;
-
-}
-
-.block_text {
-	color: white;
-	padding: 5px;
-}
-
-.block img {
-	max-width: 100%;
-	top: 0%;
-
-}
 .bot_bar {
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
 
 .text_button {
-	background-color:grey;
-	color: white;
 	padding: 5px;
 }
 .text_button:hover {

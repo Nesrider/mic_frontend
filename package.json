@@ -88,9 +88,12 @@
         "tab"
       ],
       "react/display-name": 1,
-      "react/jsx-no-bind": [2, {
+      "react/jsx-no-bind": [
+        2,
+        {
           "allowBind": true
-        }]
+        }
+      ]
     }
   }
 }
